@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    build: .  # Собрать из текущей папки
+    container_name: my-portfolio-site  # Имя контейнера
+    ports:
+      - "8080:80"  # Локальный порт:порт в контейнере
+    restart: unless-stopped  # Перезапускать при падении
+    volumes:
+      - .:/usr/share/nginx/html:ro  # Монтировать текущую папку (опционально)

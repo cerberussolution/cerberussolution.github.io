@@ -1,0 +1,9 @@
+# Игнорируем системные файлы
+.git/
+.gitignore
+README.md
+Dockerfile
+.dockerignore
+*.log
+.DS_Store
+Thumbs.db
