@@ -51,3 +51,9 @@ This project is for learning purposes. Add a license file if you plan to reuse o
 ---
 
 Enjoy experimenting with Docker and web development!
+=======
+# Мой первый сайт
+
+Это учебный проект для практики:
+- Git и GitHub
+- Веб-разработка (HTML/CSS)
