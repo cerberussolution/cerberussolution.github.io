@@ -1,14 +1,296 @@
-<!-- Вставляем после <h1> -->
-<div class="gallery-controls">
-    <input type="text" id="search" placeholder="Поиск изображений...">
-    <select id="category">
-        <option value="all">Все категории</option>
-        <option value="nature">Природа</option>
-        <option value="tech">Технологии</option>
-        <option value="art">Искусство</option>
-    </select>
-</div>
-
-<div class="gallery-grid" id="gallery">
-    <!-- Изображения загружаются через JS -->
-</div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя практика | Веб-разработка</title>
+    <style>
+        * { 
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .box { 
+            border: 2px solid #4CAF50; 
+            padding: 25px; 
+            margin: 20px;
+            border-radius: 15px;
+            background: #f9f9f9;
+            transition: transform 0.3s;
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            text-align: center;
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        
+        ul, ol {
+            padding-left: 30px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin: 8px 0;
+            padding: 5px;
+            background: #e8f5e9;
+            border-radius: 5px;
+        }
+        
+        a {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        a:hover {
+            background: #45a049;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px auto;
+            border: 3px solid #4CAF50;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        /* Стили для разнообразия списков */
+        .list-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .list-box {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Анимация появления */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .box {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Стили для разных типов li */
+        ul li {
+            list-style-type: "✅ ";
+        }
+        
+        ol li {
+            background: #e3f2fd;
+            counter-increment: item;
+        }
+        
+        ol li::before {
+            content: counter(item) ". ";
+            color: #2196F3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Моя HTML песочница</h1>
+        
+        <div class="box">
+            <h2>📝 Здесь можно экспериментировать</h2>
+            <p>Что я уже сделал:</p>
+            <ul>
+                <li>Изменить текст - <strong>Есть)</strong></li>
+                <li>Добавить картинку - <em>Already</em></li>
+                <li>Создать список - <span style="color: #4CAF50">оба типа ✓</span></li>
+                <li>Сделать ссылку - <code>My page in GitHub</code></li>
+            </ul>
+        </div>
+        
+        <div class="box">
+            <h2>📊 Сравнение списков</h2>
+            <div class="list-container">
+                <div class="list-box">
+                    <h3>Нумерованный список</h3>
+                    <ol>
+                        <li>Kill the Lights</li>
+                        <li>Are you [404 Not Found]</li>
+                        <li>LOL</li>
+                        <li>(дальше лень заполнять)</li>
+                        <li>123</li>
+                        <li>45623</li>
+                    </ol>
+                </div>
+                
+                <div class="list-box">
+                    <h3>Маркированный список</h3>
+                    <ul>
+                        <li>Kill the Lights</li>
+                        <li>Are you [404 Not Found]</li>
+                        <li>LOL</li>
+                        <li>(дальше лень заполнять)</li>
+                        <li>123</li>
+                        <li>45623</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="box" style="text-align: center;">
+            <h2>🔗 Ссылки и изображения</h2>
+            <a href="https://github.com/cerberussolution/" target="_blank" rel="noopener">
+                🌟 Перейти на мой GitHub
+            </a>
+            <p style="margin-top: 15px; color: #666;">
+                <small>Откроется в новой вкладке</small>
+            </p>
+        </div>
+        
+        <div class="box">
+            <h2>🖼️ Моё изображение</h2>
+            <img src="laptop.png" alt="Красивый ноутбук с Firefox" 
+                 onerror="this.src='https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=300&fit=crop'">
+            <p style="text-align: center; margin-top: 10px;">
+                <em>Если картинка не загрузится, будет показана заглушка</em>
+            </p>
+        </div>
+        
+        <!-- Новые эксперименты -->
+        <div class="box">
+            <h2>🎯 Дополнительные эксперименты</h2>
+            
+            <h3>Таблица навыков</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                <tr style="background: #4CAF50; color: white;">
+                    <th style="padding: 10px; text-align: left;">Навык</th>
+                    <th style="padding: 10px; text-align: left;">Уровень</th>
+                    <th style="padding: 10px; text-align: left;">Статус</th>
+                </tr>
+                <tr style="background: #f9f9f9;">
+                    <td style="padding: 10px; border: 1px solid #ddd;">HTML</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Начинающий</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">✅ Изучаю</td>
+                </tr>
+                <tr style="background: #f0f0f0;">
+                    <td style="padding: 10px; border: 1px solid #ddd;">CSS</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Новичок</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">🎨 Практикую</td>
+                </tr>
+                <tr style="background: #f9f9f9;">
+                    <td style="padding: 10px; border: 1px solid #ddd;">Git</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Средний</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">🐙 Использую</td>
+                </tr>
+            </table>
+            
+            <h3>Форма обратной связи</h3>
+            <form style="background: #f5f5f5; padding: 20px; border-radius: 10px;">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Имя:</label>
+                    <input type="text" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" 
+                           placeholder="Введите ваше имя">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Email:</label>
+                    <input type="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" 
+                           placeholder="email@example.com">
+                </div>
+                
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Сообщение:</label>
+                    <textarea style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; height: 100px;" 
+                              placeholder="Напишите ваше сообщение..."></textarea>
+                </div>
+                
+                <button type="submit" style="background: #4CAF50; color: white; padding: 12px 25px; border: none; 
+                       border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    📨 Отправить сообщение
+                </button>
+            </form>
+        </div>
+        
+        <footer>
+            <p>© 2024 Моя HTML практика | Создано с ❤️ и множеством тегов</p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
+                Изучаю: HTML • CSS • Git • Docker • GitHub Pages
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // Простой JavaScript для демонстрации
+        console.log('🎉 Страница загружена!');
+        
+        // Добавляем дату в футер
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateElement = document.createElement('p');
+            dateElement.style.marginTop = '10px';
+            dateElement.style.fontSize = '0.8em';
+            dateElement.style.opacity = '0.6';
+            dateElement.textContent = 'Обновлено: ' + new Date().toLocaleDateString('ru-RU');
+            
+            document.querySelector('footer').appendChild(dateElement);
+        });
+        
+        // Обработка формы (просто для демо)
+        document.querySelector('form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('(Это демо, данные никуда не отправляются)');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

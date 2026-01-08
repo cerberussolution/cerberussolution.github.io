@@ -178,3 +178,33 @@ footer a:hover {
     margin: 0 auto;
     padding: 0 2rem;
 }
+.hero {
+    background: linear-gradient(135deg, #007acc 0%, #005a9e 100%);
+    color: white;
+    padding: 4rem 2rem;  /* ← Убедитесь что padding достаточный */
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 3rem;
+    min-height: 300px;  /* ← Добавьте минимальную высоту */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* ← Центрируем содержимое по вертикали */
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: #007acc;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin-top: 2rem;  /* ← Отступ сверху */
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
