@@ -39,6 +39,40 @@
         .feature-card:hover {
             transform: translateY(-5px);
         }
+
+        .navbar {
+    transition: background 0.5s ease; /* Плавный переход фона */
+    background-size: cover;           /* Картинка растягивается под размер бара */
+    background-position: center;      /* Картинка центрируется */
+    position: relative;               /* Нужно для наложения эффектов */
+}
+
+/* Сделаем ссылки ярче, чтобы они не терялись на фоне картинок */
+.nav-links a {
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7); 
+    transition: opacity 0.3s;
+}
+
+/* Эффект прозрачности для кнопок при наведении */
+.nav-links li:hover a {
+    opacity: 0.7; 
+}
+
+    /* Начальное состояние: скрыто */
+.hidden-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.6s ease; /* Скорость анимации */
+}
+
+/* Состояние, которое будет добавлять JS */
+.hidden-content.is-open {
+    max-height: 200px; /* Достаточно, чтобы влез список */
+    opacity: 1;
+    margin-top: 20px;
+}
+
     </style>
 </head>
 <body>
@@ -59,12 +93,17 @@
     <!-- Главный контент -->
     <main class="container">
         <section class="hero">
-            <h1>Добро пожаловать на мой сайт!</h1>
-            <p>Изучаю Docker, GitHub Pages и веб-разработку</p>
-            <a href="projects.html" class="btn" style="background: white; color: #007acc; margin-top: 2rem; padding: 1rem 2rem;">
-                Смотреть проекты →
-            </a>
-        </section>
+    <h1>Добро пожаловать!</h1>
+    <a href="#" id="toggle-projects" class="btn">Смотреть проекты ↓</a>
+
+    <div id="projects-list" class="hidden-content">
+        <ul style="list-style: none; padding: 0; margin-top: 20px; color: rgba(0,0,0,0.7);">
+            <li>🐳 Docker Containers</li>
+            <li>🐙 GitHub Actions</li>
+            <li>JS Animations</li>
+        </ul>
+    </div>
+</section>
 
         <div class="features">
             <div class="feature-card">
@@ -102,10 +141,10 @@
     <!-- Футер -->
     <footer>
         <div class="container">
-            <p>© 2026 Мой Docker проект. Изучаю веб-разработку и DevOps.</p>
+            <p>© 2026 Cerberus Solution. Изучаю веб-разработку и DevOps.</p>
             <div class="social-links">
                 <a href="https://github.com/cerberussolution" target="_blank">GitHub</a> |
-                <a href="mailto:example@email.com">Email</a>
+                <a href="mailto:delta1.1use@gmail.com">Email</a>
             </div>
             <p class="small">Версия: 1.1.0 | Обновлено: <span id="currentDate"></span></p>
         </div>
@@ -121,6 +160,27 @@
                 link.classList.add('active');
             }
         });
+
+        // 1. Находим элементы и сохраняем их в константы (const)
+const projectBtn = document.getElementById('toggle-projects');
+const projectList = document.getElementById('projects-list');
+
+// 2. Вешаем "слушателя" на кнопку
+projectBtn.addEventListener('click', function(event) {
+    // Эта строчка отменяет стандартный переход по ссылке #
+    event.preventDefault(); 
+    
+    // 3. Главное действие: переключаем класс .is-open
+    projectList.classList.toggle('is-open');
+
+    // Добавим немного интерактива: меняем текст кнопки
+    if (projectList.classList.contains('is-open')) {
+        projectBtn.textContent = 'Скрыть проекты ↑';
+    } else {
+        projectBtn.textContent = 'Смотреть проекты ↓';
+    }
+});
+        
     </script>
 </body>
 </html>

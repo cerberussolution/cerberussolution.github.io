@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЗАГОЛОВОК_ПОСТА | Мой блог</title>
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стили для этого конкретного поста */
+        .post-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        /* Оформление блоков кода в стиле страницы */
+        .post-content pre {
+            background: #0b1220;
+            color: #d6e7ff;
+            padding: 16px;
+            border-radius: 10px;
+            overflow: auto;
+            font-family: "Fira Code", "Courier New", monospace;
+            font-size: 14px;
+            box-shadow: 0 4px 14px rgba(2,6,23,0.5);
+            margin: 20px 0;
+            position: relative;
+        }
+        .post-content pre code {
+            background: transparent;
+            color: inherit;
+            font-family: inherit;
+            display: block;
+            white-space: pre;
+        }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #9aa7bf;
+        }
+        .code-meta { display: flex; gap: 8px; align-items: center; }
+        .copy-btn {
+            background: #1f2a44;
+            color: #e6f0ff;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .copy-btn:active { transform: translateY(1px); }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">📝 Мой блог</a>
+            <ul class="nav-links">
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="../blog.html">Все посты</a></li>
+                <li><a href="../about.html">Обо мне</a></li>
+                <li><a href="../contact.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container post-container">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="../index.html">Главная</a> &gt;
+            <a href="../blog.html">Блог</a> &gt;
+            <span>Testing Creat page</span>
+        </div>
+
+        <!-- Заголовок поста -->
+        <article class="post">
+            <header class="post-header">
+                <h1>Testing Creat page</h1>
+                <div class="post-meta">
+                    <time datetime="2026-01-07">2026-01-07</time>
+                    <span class="post-category">Тестирование</span>
+                    <span class="read-time">⏱️ 30 минут для создателя</span>
+                </div>
+            </header>
+
+            <!-- Изображение поста -->
+            <img src="laptop.png" alt="клавиатура ноутбука" class="post-image">
+
+            <!-- Содержимое поста -->
+            <div class="post-content">
+                <!-- Начните писать здесь -->
+                
+                <p>Здесь вы увидете как создаются страницы</p>
+                
+                <h2>About programming</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic ut aliquam facere exercitationem possimus, optio magnam iste reiciendis odit iure consequatur cupiditate eius beatae aperiam ipsam? Quis, totam. Vero, veritatis.</p>
+                
+                <div class="highlight">
+                    <strong>Ключевая мысль:</strong> Very important information highlighted here
+                </div>
+                
+                <pre><code>// пример чего то 
+function example() {
+    console.log("Hello World");
+}</code></pre>
+                
+                <h3>Список</h3>
+                <ul>
+                    <li>Пункт 1</li>
+                    <li>Пункт 2</li>
+                </ul>
+                
+                <!-- Конец содержимого -->
+            </div>
+
+
+            <!-- Навигация между постами -->
+            <div class="post-navigation">
+                <a href="ПРЕДЫДУЩИЙ_ПОСТ.html" class="prev-post">← Предыдущий пост</a>
+                <a href="../blog.html" class="all-posts">Все посты</a>
+                <a href="СЛЕДУЮЩИЙ_ПОСТ.html" class="next-post">Следующий пост →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Мой блог. Все права защищены.</p>
+            <p>Подпишитесь на обновления: 
+                <a href="rss.xml">RSS</a> | 
+                <a href="https://github.com/ваш_логин">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/blog.js"></script>
+    <script>
+        // Подсветка синтаксиса
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html>
